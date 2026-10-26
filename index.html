@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="KoRoMed researches collaborative medical robotics with foundation models.">
+    <title>KoRoMed | Collaborative Robotics in Medicine</title>
+    <style>
+      :root {
+        --ink: #17212b;
+        --muted: #526170;
+        --paper: #f7f9fa;
+        --accent: #006a81;
+        --accent-light: #dceff2;
+        --line: #d8e0e5;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.6;
+      }
+
+      .site-header {
+        background: #fff;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .header-content,
+      main,
+      .footer-content {
+        width: min(1120px, calc(100% - 2.5rem));
+        margin: 0 auto;
+      }
+
+      .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        min-height: 5.25rem;
+      }
+
+      .wordmark {
+        margin: 0;
+        color: var(--accent);
+        font-size: 1.45rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+      }
+
+      .project-type {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+        text-align: right;
+      }
+
+      main {
+        padding: 3.5rem 0 4.5rem;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.9fr);
+        align-items: center;
+        gap: clamp(2rem, 5vw, 5rem);
+      }
+
+      .eyebrow {
+        margin: 0 0 0.75rem;
+        color: var(--accent);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 13ch;
+        font-size: clamp(2.4rem, 6vw, 5rem);
+        line-height: 1.05;
+        letter-spacing: -0.045em;
+      }
+
+      .lead {
+        margin: 1.5rem 0 0;
+        max-width: 64ch;
+        color: var(--muted);
+        font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+      }
+
+      .media-card {
+        overflow: hidden;
+        border-radius: 0.9rem;
+        background: #152430;
+        box-shadow: 0 1.25rem 3.5rem rgb(23 33 43 / 18%);
+      }
+
+      .media-card img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+      }
+
+      .media-card figcaption {
+        padding: 0.85rem 1rem;
+        color: #e9f1f3;
+        font-size: 0.85rem;
+      }
+
+      .showcase {
+        display: grid;
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 1.5rem;
+        margin-top: 5rem;
+      }
+
+      .still {
+        overflow: hidden;
+        border-radius: 0.9rem;
+        background: #dce4e8;
+      }
+
+      .still img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 18rem;
+        object-fit: cover;
+      }
+
+      .focus {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: clamp(1.75rem, 4vw, 3.5rem);
+        border-radius: 0.9rem;
+        background: var(--accent-light);
+      }
+
+      .focus h2 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(1.55rem, 3vw, 2.25rem);
+        line-height: 1.15;
+      }
+
+      .focus p {
+        margin: 0;
+        color: #284653;
+      }
+
+      .partners {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-top: 4.5rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--line);
+      }
+
+      .partners p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .logo {
+        width: auto;
+        max-width: 10rem;
+        max-height: 3.75rem;
+        object-fit: contain;
+      }
+
+      .site-footer {
+        color: #dfe9eb;
+        background: #17212b;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.5rem 0;
+        font-size: 0.875rem;
+      }
+
+      .site-footer p {
+        margin: 0;
+      }
+
+      .site-footer a {
+        color: #fff;
+        text-underline-offset: 0.2em;
+      }
+
+      @media (max-width: 700px) {
+        .header-content {
+          min-height: 0;
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 0.25rem;
+          padding: 1.25rem 0;
+        }
+
+        .project-type {
+          text-align: left;
+        }
+
+        main {
+          padding: 2.75rem 0 3.5rem;
+        }
+
+        .hero,
+        .showcase {
+          grid-template-columns: 1fr;
+        }
+
+        .showcase {
+          margin-top: 3.5rem;
+        }
+
+        .partners {
+          gap: 1.5rem;
+          margin-top: 3.5rem;
+        }
+
+        .footer-content {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-content">
+        <p class="wordmark">KoRoMed</p>
+        <p class="project-type">Collaborative Robotics in Medicine</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="project-title">
+        <div>
+          <p class="eyebrow">Research project</p>
+          <h1 id="project-title">Collaborative robotics for medical practice.</h1>
+          <p class="lead">
+            KoRoMed investigates how foundation models can make collaborative robots useful and safe in medical settings. The project focuses on pre-sorting instruments before sterilisation, a time-consuming and highly regulated task in dental and medical practices. We explore whether vision-language models can recognise instruments, plan actions from natural-language goals, and generate reliable grasping and motion strategies. The research addresses the challenges of limited data, diverse instruments, uncertainty, safety, and real-time operation. By connecting technical development with hygiene requirements and clinical workflows, KoRoMed aims to create practical support for healthcare professionals.
+          </p>
+        </div>
+        <figure class="media-card">
+          <img src="assets/koromed_compr.gif" alt="A collaborative robot handling medical instruments">
+          <figcaption>Collaborative robotic handling in a medical environment.</figcaption>
+        </figure>
+      </section>
+
+      <section class="showcase" aria-label="Project focus">
+        <div class="still">
+          <img src="assets/koromed_still.jpg" alt="KoRoMed robotic setup with medical instruments">
+        </div>
+        <div class="focus">
+          <p class="eyebrow">Our focus</p>
+          <h2>Human-centred automation</h2>
+          <p>We develop adaptable robotic systems that work alongside staff in space-constrained practices while respecting the demands of hygiene, quality assurance, and safe collaboration.</p>
+        </div>
+      </section>
+
+      <section class="partners" aria-label="Project partners">
+        <p>Project partners</p>
+        <img class="logo" src="assets/logos/hse.png" alt="Hochschule Esslingen">
+        <img class="logo" src="assets/logos/iis.png" alt="Institute for Intelligent Systems">
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>Copyright &copy; 2026 A. Hegai, T. Dang, Hochschule Esslingen</p>
+        <p><a href="https://www.hs-esslingen.de/impressum" target="_blank" rel="noopener noreferrer">Impressum</a> | <a href="https://www.hs-esslingen.de/datenschutz" target="_blank" rel="noopener noreferrer">Datenschutz</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
