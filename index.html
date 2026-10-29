@@ -360,46 +360,59 @@
         </figure>
       </section>
 
-      <section class="status" aria-labelledby="status-title">
-        <p class="eyebrow">Research progress</p>
+      <<section class="status" aria-labelledby="status-title">
+  <p class="eyebrow">Research progress</p>
 
-        <h2 id="status-title">Current status</h2>
+  <h2 id="status-title">Current status</h2>
 
-        <ul class="training-facts" aria-label="Training overview">
-          <li>π0.5 policy</li>
-          <li>311 teleoperation episodes</li>
-          <li>Failure and recovery demonstrations</li>
-        </ul>
+  <ul class="training-facts" aria-label="Training overview">
+    <li>π0.5 policy</li>
+    <li>311 teleoperation episodes</li>
+    <li>Failure and recovery demonstrations</li>
+    <li>Semi-flexible 3D-printed gripper</li>
+  </ul>
 
-        <p>
-          We have fine-tuned π0.5 on a dataset of 311 teleoperated
-          episodes of dental instrument handling. The dataset
-          includes deliberately introduced failures and subsequent
-          recovery actions, alongside successful task demonstrations.
-          The training data is available on
-          <a
-            href="https://huggingface.co/datasets/AHegai/mixed"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Hugging Face</a>.
-        </p>
+  <p>
+    We have fine-tuned π0.5
+    (<a
+      href="https://forge.coreweave.com/wandb/hegaialexander-hochschule-esslingen-university-of-applie/openpi/reports/PI05-fine-tuning--VmlldzoxODIwMjg5NA?accessToken=ptovd45wp77pws1u2mx451tczb4bvt92a0ulg3s5j9vbsc2ahigv4pc502mi77y0add"
+      target="_blank"
+      rel="noopener noreferrer"
+    >training report</a>)
+    on a dataset of 311 teleoperated episodes of dental
+    instrument handling. The dataset includes deliberately
+    introduced failures and subsequent recovery actions,
+    alongside successful task demonstrations. The training
+    data is available on
+    <a
+      href="https://huggingface.co/datasets/AHegai/mixed"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Hugging Face</a>.
+  </p>
 
-        <p>
-          The demonstration above shows the resulting policy
-          controlling a robot arm to place a dental probe into
-          an instrument rack. This laboratory setup provides
-          a basis for evaluating and improving learned
-          instrument-handling skills.
-        </p>
+  <p>
+    We have also replaced the original gripper with a
+    semi-flexible, 3D-printed gripper designed to improve
+    grasping of small dental instruments.
+  </p>
 
-        <p>
-          Our ongoing work focuses on implementing a reinforcement
-          learning extension inspired by RECAP and π*0.6. The goal
-          is to improve the policy through additional robot
-          experience and feedback, increasing the success rate
-          and robustness of instrument placement.
-        </p>
-      </section>
+  <p>
+    The demonstration above shows the resulting policy
+    controlling a robot arm to place a dental probe into
+    an instrument rack. This laboratory setup provides
+    a basis for evaluating and improving learned
+    instrument-handling skills.
+  </p>
+
+  <p>
+    Our ongoing work focuses on implementing a reinforcement
+    learning extension inspired by RECAP and π*0.6. The goal
+    is to improve the policy through additional robot
+    experience and feedback, increasing the success rate
+    and robustness of instrument placement.
+  </p>
+</section>
 
       <section class="showcase" aria-label="Project focus">
         <div class="still">
