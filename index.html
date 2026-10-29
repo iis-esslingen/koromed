@@ -3,8 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="KoRoMed researches collaborative medical robotics with foundation models.">
+    <meta
+      name="description"
+      content="KoRoMed researches collaborative medical robotics with foundation models, including learned dental instrument handling."
+    >
     <title>KoRoMed | Collaborative Robotics in Medicine</title>
+
     <style>
       :root {
         --ink: #17212b;
@@ -71,10 +75,7 @@
       }
 
       .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.9fr);
-        align-items: center;
-        gap: clamp(2rem, 5vw, 5rem);
+        display: block;
       }
 
       .eyebrow {
@@ -88,7 +89,7 @@
 
       h1 {
         margin: 0;
-        max-width: 13ch;
+        max-width: 20ch;
         font-size: clamp(2.4rem, 6vw, 5rem);
         line-height: 1.05;
         letter-spacing: -0.045em;
@@ -96,13 +97,14 @@
 
       .lead {
         margin: 1.5rem 0 0;
-        max-width: 64ch;
+        max-width: 85ch;
         color: var(--muted);
         font-size: clamp(1.05rem, 1.5vw, 1.2rem);
       }
 
       .media-card {
         overflow: hidden;
+        margin: 2.5rem 0 0;
         border-radius: 0.9rem;
         background: #152430;
         box-shadow: 0 1.25rem 3.5rem rgb(23 33 43 / 18%);
@@ -111,8 +113,7 @@
       .media-card img {
         display: block;
         width: 100%;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
+        height: auto;
       }
 
       .media-card figcaption {
@@ -121,11 +122,57 @@
         font-size: 0.85rem;
       }
 
+      .status {
+        margin-top: 3rem;
+        padding: clamp(1.5rem, 4vw, 2.5rem);
+        border: 1px solid var(--line);
+        border-radius: 0.9rem;
+        background: #fff;
+      }
+
+      .status h2 {
+        margin: 0 0 1rem;
+        font-size: clamp(1.55rem, 3vw, 2.25rem);
+        line-height: 1.15;
+      }
+
+      .status > p:not(.eyebrow) {
+        max-width: 85ch;
+        margin: 0 0 1rem;
+        color: var(--muted);
+      }
+
+      .status > p:last-child {
+        margin-bottom: 0;
+      }
+
+      .status a {
+        color: var(--accent);
+        text-underline-offset: 0.2em;
+      }
+
+      .training-facts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin: 0 0 1.5rem;
+        padding: 0;
+        list-style: none;
+      }
+
+      .training-facts li {
+        padding: 0.45rem 0.85rem;
+        border-radius: 0.5rem;
+        background: var(--accent-light);
+        color: #284653;
+        font-size: 0.9rem;
+      }
+
       .showcase {
         display: grid;
         grid-template-columns: 1.25fr 0.75fr;
         gap: 1.5rem;
-        margin-top: 5rem;
+        margin-top: 3rem;
       }
 
       .still {
@@ -160,6 +207,11 @@
       .focus p {
         margin: 0;
         color: #284653;
+      }
+
+      .focus .eyebrow {
+        margin-bottom: 0.75rem;
+        color: var(--accent);
       }
 
       .partners {
@@ -227,13 +279,17 @@
           padding: 2.75rem 0 3.5rem;
         }
 
-        .hero,
+        .media-card {
+          margin-top: 2rem;
+        }
+
         .showcase {
           grid-template-columns: 1fr;
         }
 
+        .status,
         .showcase {
-          margin-top: 3.5rem;
+          margin-top: 2rem;
         }
 
         .partners {
@@ -246,13 +302,22 @@
           flex-direction: column;
         }
       }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
     </style>
   </head>
+
   <body>
     <header class="site-header">
       <div class="header-content">
         <p class="wordmark">KoRoMed</p>
-        <p class="project-type">Collaborative Robotics in Medicine</p>
+        <p class="project-type">
+          Collaborative Robotics in Medicine
+        </p>
       </div>
     </header>
 
@@ -260,39 +325,140 @@
       <section class="hero" aria-labelledby="project-title">
         <div>
           <p class="eyebrow">Research project</p>
-          <h1 id="project-title">Collaborative robotics for medical practice.</h1>
+
+          <h1 id="project-title">
+            Collaborative robotics for medical practice.
+          </h1>
+
           <p class="lead">
-            KoRoMed investigates how foundation models can make collaborative robots useful and safe in medical settings. The project focuses on pre-sorting instruments before sterilisation, a time-consuming and highly regulated task in dental and medical practices. We explore whether vision-language models can recognise instruments, plan actions from natural-language goals, and generate reliable grasping and motion strategies. The research addresses the challenges of limited data, diverse instruments, uncertainty, safety, and real-time operation. By connecting technical development with hygiene requirements and clinical workflows, KoRoMed aims to create practical support for healthcare professionals.
+            KoRoMed investigates how foundation models can make
+            collaborative robots useful and safe in medical settings.
+            The project focuses on pre-sorting instruments before
+            sterilisation, a time-consuming and highly regulated task
+            in dental and medical practices. We explore whether
+            vision-language models can recognise instruments, plan
+            actions from natural-language goals, and generate reliable
+            grasping and motion strategies. The research addresses the
+            challenges of limited data, diverse instruments,
+            uncertainty, safety, and real-time operation. By connecting
+            technical development with hygiene requirements and
+            clinical workflows, KoRoMed aims to create practical
+            support for healthcare professionals.
           </p>
         </div>
+
         <figure class="media-card">
-          <img src="assets/koromed_compr.gif" alt="A collaborative robot handling medical instruments">
-          <figcaption>Collaborative robotic handling in a medical environment.</figcaption>
+          <img
+            src="assets/koromed_compr.gif"
+            alt="A robot arm placing a dental probe into an instrument rack"
+          >
+          <figcaption>
+            Laboratory demonstration: a robot arm placing a dental
+            probe into an instrument rack using a fine-tuned
+            π0.5 policy.
+          </figcaption>
         </figure>
+      </section>
+
+      <section class="status" aria-labelledby="status-title">
+        <p class="eyebrow">Research progress</p>
+
+        <h2 id="status-title">Current status</h2>
+
+        <ul class="training-facts" aria-label="Training overview">
+          <li>π0.5 policy</li>
+          <li>311 teleoperation episodes</li>
+          <li>Failure and recovery demonstrations</li>
+        </ul>
+
+        <p>
+          We have fine-tuned π0.5 on a dataset of 311 teleoperated
+          episodes of dental instrument handling. The dataset
+          includes deliberately introduced failures and subsequent
+          recovery actions, alongside successful task demonstrations.
+          The training data is available on
+          <a
+            href="https://huggingface.co/datasets/AHegai/mixed"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Hugging Face</a>.
+        </p>
+
+        <p>
+          The demonstration above shows the resulting policy
+          controlling a robot arm to place a dental probe into
+          an instrument rack. This laboratory setup provides
+          a basis for evaluating and improving learned
+          instrument-handling skills.
+        </p>
+
+        <p>
+          Our ongoing work focuses on implementing a reinforcement
+          learning extension inspired by RECAP and π*0.6. The goal
+          is to improve the policy through additional robot
+          experience and feedback, increasing the success rate
+          and robustness of instrument placement.
+        </p>
       </section>
 
       <section class="showcase" aria-label="Project focus">
         <div class="still">
-          <img src="assets/koromed_still.jpg" alt="KoRoMed robotic setup with medical instruments">
+          <img
+            src="assets/koromed_still.jpg"
+            alt="KoRoMed robotic setup with medical instruments"
+            loading="lazy"
+          >
         </div>
+
         <div class="focus">
           <p class="eyebrow">Our focus</p>
           <h2>Human-centred automation</h2>
-          <p>We develop adaptable robotic systems that work alongside staff in space-constrained practices while respecting the demands of hygiene, quality assurance, and safe collaboration.</p>
+          <p>
+            We develop adaptable robotic systems that work alongside
+            staff in space-constrained practices while respecting
+            the demands of hygiene, quality assurance, and safe
+            collaboration.
+          </p>
         </div>
       </section>
 
       <section class="partners" aria-label="Project partners">
         <p>Project partners</p>
-        <img class="logo" src="assets/logos/hse.png" alt="Hochschule Esslingen">
-        <img class="logo" src="assets/logos/iis.png" alt="Institute for Intelligent Systems">
+        <img
+          class="logo"
+          src="assets/logos/hse.png"
+          alt="Hochschule Esslingen"
+          loading="lazy"
+        >
+        <img
+          class="logo"
+          src="assets/logos/iis.png"
+          alt="Institute for Intelligent Systems"
+          loading="lazy"
+        >
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="footer-content">
-        <p>Copyright &copy; 2026 A. Hegai, T. Dang, Hochschule Esslingen</p>
-        <p><a href="https://www.hs-esslingen.de/impressum" target="_blank" rel="noopener noreferrer">Impressum</a> | <a href="https://www.hs-esslingen.de/datenschutz" target="_blank" rel="noopener noreferrer">Datenschutz</a></p>
+        <p>
+          Copyright &copy; 2026 A. Hegai, T. Dang,
+          Hochschule Esslingen
+        </p>
+
+        <p>
+          <a
+            href="https://www.hs-esslingen.de/impressum"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Impressum</a>
+          |
+          <a
+            href="https://www.hs-esslingen.de/datenschutz"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Datenschutz</a>
+        </p>
       </div>
     </footer>
   </body>
